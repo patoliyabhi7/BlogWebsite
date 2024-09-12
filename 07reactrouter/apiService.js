@@ -51,7 +51,8 @@ export const deleteUser = async (id) => {
 
 
 //BLOG
-const API_URL = 'http://localhost:8000/api/blog';
+// const API_URL = 'http://localhost:8000/api/blog';
+const API_URL = 'https://blog-website-backend-65rub62hk-abhis-projects-5ebf729c.vercel.app/api/blog';
 // Get all users
 export const getBlogs = async () => {
     try {
