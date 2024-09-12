@@ -11,7 +11,6 @@ app.use(cors(
         credentials: true
     }
 ));
-app.use(cors());
 app.use(express.json());
 
 // Serve the index.html file from the root folder
