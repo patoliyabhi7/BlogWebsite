@@ -6,7 +6,7 @@ const cors = require('cors');
 const blogRoute = require('./routes/blog');
 app.use(cors(
     {
-        origin: ["https://blog-website-frontend-virid.vercel.app/"],
+        origin: ["https://blog-website-frontend-virid.vercel.app/blog"],
         methods: ["POST", "GET"],
         credentials: true
     }
