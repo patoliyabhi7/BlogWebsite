@@ -16,7 +16,8 @@ app.use(express.json());
 
 // Serve the index.html file from the root folder
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    // res.sendFile(path.join(__dirname, 'index.html'));
+    console.log("Hello world!!")
 });
 
 // Use the blog route for API
