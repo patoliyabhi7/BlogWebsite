@@ -6,7 +6,7 @@ const cors = require('cors');
 const blogRoute = require('./routes/blog');
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://google.com"],
         methods: ["POST", "GET"],
         credentials: true
     }
