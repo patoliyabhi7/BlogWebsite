@@ -4,13 +4,14 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const blogRoute = require('./routes/blog');
-app.use(cors(
-    {
-        origin: ["https://google.com"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+// app.use(cors(
+//     {
+//         origin: ["https://google.com"],
+//         methods: ["POST", "GET"],
+//         credentials: true
+//     }
+// ));
+app.use(cors());
 app.use(express.json());
 
 // Serve the index.html file from the root folder
