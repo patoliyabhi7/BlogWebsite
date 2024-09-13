@@ -2,11 +2,11 @@ import axios from 'axios';
 
 
 // CRUD
-// const API_URL = 'http://localhost:3000/api/user';
+const API_URL2 = 'http://localhost:3000/api/user';
 // // Get all users
 export const getUsers = async () => {
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get(API_URL2);
         return response.data;
     } catch (error) {
         console.error('Error fetching users:', error);
@@ -17,7 +17,7 @@ export const getUsers = async () => {
 // Create a new user
 export const createUser = async (user) => {
     try {
-        const response = await axios.post(API_URL, user);
+        const response = await axios.post(API_URL2, user);
         return response.data;
     } catch (error) {
         console.error('Error creating user:', error);
@@ -28,7 +28,7 @@ export const createUser = async (user) => {
 // Update a user
 export const updateUser = async (id, user) => {
     try {
-        const response = await axios.put(`${API_URL}/edit_profile/${id}`, user);
+        const response = await axios.put(`${API_URL2}/edit_profile/${id}`, user);
         return response.data;
     } catch (error) {
         console.error('Error updating user:', error);
@@ -39,7 +39,7 @@ export const updateUser = async (id, user) => {
 // Delete a user
 export const deleteUser = async (id) => {
     try {
-        const response = await axios.delete(`${API_URL}/delete/${id}`);
+        const response = await axios.delete(`${API_URL2}/delete/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error deleting user:', error);
