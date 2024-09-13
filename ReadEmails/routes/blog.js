@@ -43,6 +43,7 @@ router.get('/generateBlog', async (req, res) => {
 // API route to fetch all blogs
 router.get('/blog', async (req, res) => {
     try {
+        console.log('object :>> ', );
         const blogs = await Blog.find();
         console.log("Blogs fetched successfully.");
         res.status(200).json(blogs);

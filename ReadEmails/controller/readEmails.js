@@ -188,7 +188,7 @@ const geminiAI = async (combinedContent) => {
     Content starts from below:
     ${combinedContent}`;
     
-    // 8. **Output the blog post in valid HTML format**, using tags like <h1> for the title and <p> for the paragraphs, so that it can be directly posted.
+    // 12. **Output the blog post in valid tailwind classes format**, using tags like <h1> for the title and <p> for the paragraphs, so that it can be directly posted.
     const result = await model.generateContent([prompt]);
     return result.response.text();
 }
