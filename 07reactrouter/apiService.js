@@ -51,27 +51,10 @@ export const deleteUser = async (id) => {
 
 
 //BLOG
-// const API_URL = 'http://localhost:8000/api/blog';
-const API_URL = 'https://blog-website-backend-l4ih2wka4-abhis-projects-5ebf729c.vercel.app/';
-const API_URL_HOME = 'https://blog-website-backend-l4ih2wka4-abhis-projects-5ebf729c.vercel.app/home';
-
-
-export const getHome = async () => {
-    try {
-        const response = await fetch(API_URL_HOME);
-        if (!response.ok) {
-            throw new Error('network response was not ok');
-        }
-        const data = await response.json();
-        console.log(data)
-        return data;
-    } catch (error) {
-        console.error('Error fetching users:', error);
-        throw error;
-    }
-};
-
+const API_URL = 'http://localhost:8000/api/blog';
+// const API_URL = 'https://blog-website-backend-l4ih2wka4-abhis-projects-5ebf729c.vercel.app/';
 // const API_URL = 'https://musical-horse-1e7cc7.netlify.app/api/blog';
+
 // Get all users
 export const getBlogs = async () => {
     try {
