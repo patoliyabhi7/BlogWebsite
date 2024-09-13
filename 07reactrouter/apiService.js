@@ -51,8 +51,8 @@ export const deleteUser = async (id) => {
 
 
 //BLOG
-const API_URL = 'http://localhost:8000/api/blog';
-// const API_URL = 'https://blog-website-backend-l4ih2wka4-abhis-projects-5ebf729c.vercel.app/';
+// const API_URL = 'http://localhost:8000/api/blog';
+const API_URL = 'https://blog-website-backend-l4ih2wka4-abhis-projects-5ebf729c.vercel.app/';
 // const API_URL = 'https://musical-horse-1e7cc7.netlify.app/api/blog';
 
 // Get all users
