@@ -27,9 +27,7 @@ router.get('/generateBlog', async (req, res) => {
         const body = bodyMatch ? bodyMatch[1].trim() : "No Body Found";
 
         // Return the blog content as a JSON response
-        console.log("Blog content generated successfully.");
         await Blog.create({ title, body });
-        // console.log("Blog content saved successfully.");
         res.status(200).json({
             title,
             body

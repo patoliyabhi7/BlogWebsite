@@ -57,9 +57,12 @@ const API_URL = 'http://localhost:8000/api/blog';
 // Get all users
 export const getBlogs = async () => {
     try {
-        const response = await axios.get(API_URL);
-        console.log(response)
-        return response.data;
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error('network response was not ok');
+        }
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error('Error fetching users:', error);
         throw error;
@@ -68,8 +71,12 @@ export const getBlogs = async () => {
 
 export const getBlogById = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/${id}`);
-        return response.data;
+        const response = await fetch(`${API_URL}/${id}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error('Error fetching blog:', error);
         throw error;

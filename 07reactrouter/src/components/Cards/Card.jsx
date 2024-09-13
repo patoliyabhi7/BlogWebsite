@@ -14,7 +14,6 @@ function truncateText(text, limit, type = "words") {
 
 export default function Card({ title, body, id }) {
   const truncatedBody = truncateText(body, 30, "words");
-  console.log(id);
   return (
     <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 m-2">
       <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
