@@ -81,15 +81,41 @@ router.get('/generateBlog', async (req, res) => {
 });
 
 // API route to fetch all blogs
-router.get('/blog', async (req, res) => {
-    try {
-        const blogs = await Blog.find();
-        res.status(200).json(blogs);
-    } catch (error) {
-        console.error("Error fetching blogs:", error);
-        res.status(500).json({ message: "Error fetching blogs." });
-    }
-});
+// router.get('/blog', async (req, res) => {
+//     try {
+//         // const blogs = await Blog.find();
+//         const response = await fetch("https://github.com/patoliyabhi7/BlogWebsite/blob/main/07reactrouter/blogContent.json")
+//         const data = await response.json();
+//         console.log()
+//         res.status(200).json(blogs);
+//     } catch (error) {
+//         console.error("Error fetching blogs:", error);
+//         res.status(500).json({ message: "Error fetching blogs." });
+//     }
+// });
+(async () => {
+    const fetch = (await import('node-fetch')).default;
+
+    // Your existing code using fetch...
+
+    router.get('/blog', async (req, res) => {
+        try {
+            const response = await fetch("https://raw.githubusercontent.com/patoliyabhi7/BlogWebsite/main/07reactrouter/blogContent.json");
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const blogs = await response.json();
+            res.status(200).json(blogs);
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+            res.status(500).json({ message: "Error fetching blogs." });
+        }
+    });
+
+    module.exports = router;
+})();
 
 // API route to fetch a specific blog
 router.get('/blog/:id', async (req, res) => {
