@@ -39,8 +39,9 @@ router.get('/generateBlog', async (req, res) => {
         const combinedContent = emails.map(email => `Title: ${email.subject} ### Body: ${email.body} ||| `).join("\n\n");
         const blogContent = await geminiAI(combinedContent);
 
-        const titleMatch = blogContent.match(/Title:\s*(.*?)\n/);
-        const bodyMatch = blogContent.match(/Body:\s*([\s\S]*)/);
+        // Update the regex to match the new format with Tailwind classes and div tags
+        const titleMatch = blogContent.match(/<div id="blog-title"[^>]*>(.*?)<\/div>/s);
+        const bodyMatch = blogContent.match(/<div id="blog-body"[^>]*>([\s\S]*?)<\/div>/s);
 
         const title = titleMatch ? titleMatch[1].trim() : "No Title Found";
         const body = bodyMatch ? bodyMatch[1].trim() : "No Body Found";
@@ -82,9 +83,7 @@ router.get('/generateBlog', async (req, res) => {
 // API route to fetch all blogs
 router.get('/blog', async (req, res) => {
     try {
-        console.log('object :>> ',);
         const blogs = await Blog.find();
-        console.log("Blogs fetched successfully.");
         res.status(200).json(blogs);
     } catch (error) {
         console.error("Error fetching blogs:", error);

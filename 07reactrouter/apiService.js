@@ -90,10 +90,10 @@ export const deleteUser = async (id) => {
 
 
 // axios
-// const API_URL = 'http://localhost:8000/api/blog';
+const API_URL = 'http://localhost:8000/api/blog';
 // const API_URL = 'https://blog-website-backend-ek8l2cnek-abhis-projects-5ebf729c.vercel.app/api/blog';
-const API_URL = 'https://blog-website-backend-fmsu4gdex-abhis-projects-5ebf729c.vercel.app/api/blog';
-// Get all users
+// const API_URL = 'https://blog-website-backend-fmsu4gdex-abhis-projects-5ebf729c.vercel.app/api/blog';
+// // Get all users
 export const getBlogs = async () => {
     try {
         const response = await axios.get(API_URL);

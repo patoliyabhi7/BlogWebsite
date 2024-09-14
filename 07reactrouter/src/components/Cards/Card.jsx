@@ -12,8 +12,15 @@ function truncateText(text, limit, type = "words") {
   }
 }
 
+function stripHtmlTags(str) {
+  return str.replace(/<[^>]*>/g, '');
+}
+
 export default function Card({ title, body, id, imgUrl }) {
-  const truncatedBody = truncateText(body, 30, "words");
+  const cleanTitle = stripHtmlTags(title);
+  const cleanBody = stripHtmlTags(body);
+  const truncatedBody = truncateText(cleanBody, 30, "words");
+
   return (
     <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 m-2">
       <div className="relative m-2.5 overflow-hidden text-white rounded-md ">
@@ -23,7 +30,7 @@ export default function Card({ title, body, id, imgUrl }) {
         />
       </div>
       <div className="p-4 my-auto">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">{title}</h6>
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">{cleanTitle}</h6>
         <p className="text-slate-600 leading-normal font-light">
           {truncatedBody}
         </p>
@@ -35,6 +42,7 @@ export default function Card({ title, body, id, imgUrl }) {
             href="https://www.movya.com"
             className="text-2xl text-blue-700 font-bold underline"
             target="_blank"
+            rel="noopener noreferrer"
           >
             www.movya.com
           </a>

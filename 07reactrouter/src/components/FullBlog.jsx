@@ -31,7 +31,6 @@ export default function FullBlog() {
 
   return (
     <div>
-
       <section className="p-8">
         <div className="mx-auto max-w-screen-md">
           <img
@@ -42,16 +41,14 @@ export default function FullBlog() {
           <Typography variant="small" className="font-medium !text-blue-500">
             #blog #post
           </Typography>
-          <Typography
-            variant="h2"
-            color="blue-gray"
+          <div
             className="my-4 font-black text-4xl !leading-snug"
-          >
-            {blog.title || "The Castle Looks Different at Night..."}
-          </Typography>
-          <Typography className="font-normal !text-gray-500">
-            {blog.body || "No content available."}
-          </Typography>
+            dangerouslySetInnerHTML={{ __html: blog.title || "The Castle Looks Different at Night..." }}
+          />
+          <div
+            className="font-normal !text-gray-500"
+            dangerouslySetInnerHTML={{ __html: blog.body || "No content available." }}
+          />
         </div>
       </section>
     </div>

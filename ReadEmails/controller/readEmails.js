@@ -184,12 +184,14 @@ const geminiAI = async (combinedContent) => {
     9. The summary should be engaging and informative, making readers want to read more.
     10. The blog should be in paragraph form, with a clear structure and flow.
     11. Title should be unqiuely indentified such as Title:title here and then body as Body:body here.
+    12. **Output the blog post in valid tailwind classes format**, using tags like <h1> for the title and <p> for the paragraphs, add multiple subheadings according to the content, replace <h1> and other heading tags with relevant tailwind classes as that heading tags won't be effective,so that it can be directly posted.
+    13. Divide the blog in two different div tags, first div tag should contain title and id="blog-title" and second div tag should contain body and id="blog-body".
     
     Content starts from below:
     ${combinedContent}`;
     
-    // 12. **Output the blog post in valid tailwind classes format**, using tags like <h1> for the title and <p> for the paragraphs, so that it can be directly posted.
     const result = await model.generateContent([prompt]);
+    console.log(result.response.text());
     return result.response.text();
 }
 
