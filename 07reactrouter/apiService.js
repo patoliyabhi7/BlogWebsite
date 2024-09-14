@@ -90,27 +90,65 @@ export const deleteUser = async (id) => {
 
 
 // axios
-const API_URL = 'http://localhost:8000/api/blog';
+// const API_URL = 'http://localhost:8000/api/blog';
 // const API_URL = 'https://blog-website-backend-ek8l2cnek-abhis-projects-5ebf729c.vercel.app/api/blog';
 // const API_URL = 'https://blog-website-backend-fmsu4gdex-abhis-projects-5ebf729c.vercel.app/api/blog';
 // // Get all users
+// export const getBlogs = async () => {
+//     try {
+//         const response = await axios.get(API_URL);
+//         console.log(response)
+//         return response.data;
+//     } catch (error) {
+//         console.error('Error fetching users:', error);
+//         throw error;
+//     }
+// };
+
+// export const getBlogById = async (id) => {
+//     try {
+//         const response = await axios.get(`${API_URL}/${id}`);
+//         return response.data;
+//     } catch (error) {
+//         console.error('Error fetching blog:', error);
+//         throw error;
+//     }
+// };
+
+
+// github api
+const GITHUB_API_URL = 'https://api.github.com/repos';
+const OWNER = 'patoliyabhi7';
+const REPO = 'BlogWebsite';
+const FILE_PATH = '07reactrouter/blogContent.json';
+
+const API_URL = `${GITHUB_API_URL}/${OWNER}/${REPO}/contents/${FILE_PATH}`;
+
 export const getBlogs = async () => {
     try {
-        const response = await axios.get(API_URL);
-        console.log(response)
+        const response = await axios.get(API_URL, {
+            headers: {
+                'Accept': 'application/vnd.github.v3.raw' // This header ensures you get the raw file content
+            }
+        });
         return response.data;
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching blogs:', error);
         throw error;
     }
 };
 
 export const getBlogById = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/${id}`);
-        return response.data;
+        const blogs = await getBlogs();
+
+        const blog = blogs.find(blog => { if (blog._id === id) return blog; });
+        if (!blog) {
+            throw new Error(`Blog with ID ${id} not found`);
+        }
+        return blog;
     } catch (error) {
-        console.error('Error fetching blog:', error);
+        console.error('Error fetching blog:', error.message);
         throw error;
     }
 };
