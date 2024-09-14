@@ -12,13 +12,13 @@ function truncateText(text, limit, type = "words") {
   }
 }
 
-export default function Card({ title, body, id }) {
+export default function Card({ title, body, id, imgUrl }) {
   const truncatedBody = truncateText(body, 30, "words");
   return (
     <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 m-2">
-      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+      <div className="relative m-2.5 overflow-hidden text-white rounded-md ">
         <img
-          src="https://media.istockphoto.com/id/1517344698/photo/white-cyborg-robotic-hand-pointing-his-finger-to-human-hand-with-stretched-finger-ai.jpg?s=1024x1024&w=is&k=20&c=pxvURfhx_12Axs1cIsFgRHzupBABWM-BvRz4zpfFcaU="
+          src={imgUrl}
           alt="card-image"
         />
       </div>

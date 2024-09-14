@@ -49,25 +49,56 @@ export const deleteUser = async (id) => {
 
 
 
-
-//BLOG
+// // fetch
+// //BLOG
 // const API_URL = 'http://localhost:8000/api/blog';
-const API_URL = 'https://blog-website-backend-nm9ln74rs-abhis-projects-5ebf729c.vercel.app/api/blog';
-// const API_URL = 'https://musical-horse-1e7cc7.netlify.app/api/blog';
+// // const API_URL = 'https://blog-website-backend-nm9ln74rs-abhis-projects-5ebf729c.vercel.app/api/blog';
+// // const API_URL = 'https://musical-horse-1e7cc7.netlify.app/api/blog';
 
+// // Get all users
+// export const getBlogs = async () => {
+//     try {
+//         const response = await fetch(API_URL);
+//         console.log(response);
+//         if(!response){
+//             throw new Error('response is null');
+//         }
+//         if (!response.ok) {
+//             throw new Error('network response was not ok');
+//         }
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('Error fetching users:', error);
+//         throw error;
+//     }
+// };
+
+// export const getBlogById = async (id) => {
+//     try {
+//         const response = await fetch(`${API_URL}/${id}`);
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('Error fetching blog:', error);
+//         throw error;
+//     }
+// };
+
+
+// axios
+// const API_URL = 'http://localhost:8000/api/blog';
+// const API_URL = 'https://blog-website-backend-ek8l2cnek-abhis-projects-5ebf729c.vercel.app/api/blog';
+const API_URL = 'https://blog-website-backend-fmsu4gdex-abhis-projects-5ebf729c.vercel.app/api/blog';
 // Get all users
 export const getBlogs = async () => {
     try {
-        const response = await fetch(API_URL);
-        console.log(response);
-        if(!response){
-            throw new Error('response is null');
-        }
-        if (!response.ok) {
-            throw new Error('network response was not ok');
-        }
-        const data = await response.json();
-        return data;
+        const response = await axios.get(API_URL);
+        console.log(response)
+        return response.data;
     } catch (error) {
         console.error('Error fetching users:', error);
         throw error;
@@ -76,12 +107,8 @@ export const getBlogs = async () => {
 
 export const getBlogById = async (id) => {
     try {
-        const response = await fetch(`${API_URL}/${id}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data;
+        const response = await axios.get(`${API_URL}/${id}`);
+        return response.data;
     } catch (error) {
         console.error('Error fetching blog:', error);
         throw error;

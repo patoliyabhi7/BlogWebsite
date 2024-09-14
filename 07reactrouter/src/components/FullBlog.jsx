@@ -35,7 +35,7 @@ export default function FullBlog() {
       <section className="p-8">
         <div className="mx-auto max-w-screen-md">
           <img
-            src={`https://media.istockphoto.com/id/1517344698/photo/white-cyborg-robotic-hand-pointing-his-finger-to-human-hand-with-stretched-finger-ai.jpg?s=1024x1024&w=is&k=20&c=pxvURfhx_12Axs1cIsFgRHzupBABWM-BvRz4zpfFcaU=`}
+            src={blog.imageURL}
             alt="team work"
             className="mb-4 h-[28rem] w-full rounded-xl object-cover"
           />

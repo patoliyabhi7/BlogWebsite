@@ -21,7 +21,7 @@ export default function Blog() {
   return (
     <div className="flex flex-wrap justify-center bg-orange-100">
       {blogs.map((blog, index) => (
-        <Card key={blog._id} title={blog.title} body={blog.body} id={blog._id} />
+        <Card key={blog._id} title={blog.title} body={blog.body} id={blog._id} imgUrl={blog.imageURL}/>
       ))}
      
     </div>
