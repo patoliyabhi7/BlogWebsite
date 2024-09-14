@@ -27,6 +27,7 @@ export default function Card({ title, body, id, imgUrl }) {
         <img
           src={imgUrl}
           alt="card-image"
+          className="h-[244px] w-full object-cover"
         />
       </div>
       <div className="p-4 my-auto">
